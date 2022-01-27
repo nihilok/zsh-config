@@ -15,7 +15,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 clear
 echo "Enjoy!"
-#printf "\e[1B"    # linedown
-printf "\n"    # linedown
+printf "\n"
 exec zsh 
 
