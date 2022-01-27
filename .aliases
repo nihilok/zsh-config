@@ -1,0 +1,27 @@
+# ssh
+# alias serv1="ssh u@serv1"
+
+# system
+alias sysres="sudo systemctl restart"
+alias supres="sudo supervisorctl restart"
+alias supstop="sudo supervisorctl stop"
+alias update="sudo apt update"
+alias upgrade="sudo apt upgrade -y"
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ls="ls -GF --color=auto"
+alias ll="ls -lGF --color=auto"
+alias la="ls -aGF --color=auto"
+alias l="ls -GF --color=auto"
+alias lla="ls -alGF --color=auto"
+
+
+# git
+alias gs='git status'
+alias gc='git commit -m'
+alias gf='git fetch'
+alias ga='git add'
+alias gac='git commit -a -m'
+alias push='git push'
