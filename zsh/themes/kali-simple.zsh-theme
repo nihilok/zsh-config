@@ -10,8 +10,12 @@ function virtenv_indicator {
 
 add-zsh-hook precmd virtenv_indicator
 
+if [[ -n $SSH_CONNECTION ]]; 
+	then 
+	HOSTNAME_DISPLAY="(%B%F{blue}%n@%m%b%F{green})-"
+fi
 
-PROMPT=$'%F{green}┌──(%B%F{blue}%n@%m%b%F{green})-[%B%F{blue}%2~%b%F{green}]%F{011} %(1V.(%1v).)$(git_prompt_info)\n%F{green}└─%B%F{blue}$%b%F{reset} '
+PROMPT=$'%F{green}┌──$(echo $HOSTNAME_DISPLAY)[%B%F{blue}%3~%b%F{green}]%F{011} %(1V.(%1v).)$(git_prompt_info)\n%F{green}└─%B%F{blue}$%b%F{reset} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}\u2387 "
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
