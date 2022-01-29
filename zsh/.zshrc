@@ -7,12 +7,9 @@ plugins=(
 )
 
 
+# Print a new line before the prompt, but only if it is not the first line
 new_line_before_prompt=yes
 precmd() {
-    # Print the previously configured title
-    print -Pn "$TERM_TITLE"
-
-    # Print a new line before the prompt, but only if it is not the first line
     if [ "$new_line_before_prompt" = yes ]; then
        if [ -z "$_NEW_LINE_BEFORE_PROMPT" ]; then
            _NEW_LINE_BEFORE_PROMPT=1
@@ -37,7 +34,7 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 
 
-
+# Functions and aliases
 function create_alias() {
     echo "alias $1=\"$2\"" >> $ZSH/custom/aliases
 }
@@ -49,10 +46,12 @@ function backup () {
 source $ZSH/custom/aliases/aliases
 source $ZSH/custom/aliases/my.aliases
 
+AUTO_TMUX_ON=1
+
 if [[ -n $SSH_CONNECTION ]]; then
 	export EDITOR='vim'
 else
   	export EDITOR='nvim'
-	if [ "$TMUX" = "" ] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then exec tmux; fi
+	if [ $AUTO_TMUX_ON -gt 0 ] && [ "$TMUX" = "" ] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then exec tmux; fi
 fi
 
