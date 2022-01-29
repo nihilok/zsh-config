@@ -36,12 +36,6 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
 
 
 function create_alias() {
@@ -52,6 +46,13 @@ function backup () {
     cp $1 ~/.backup;
 }
 
-source $ZSH/custom/aliases
-if [ "$TMUX" = "" ] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then exec tmux; fi
+source $ZSH/custom/aliases/aliases
+source $ZSH/custom/aliases/my.aliases
+
+if [[ -n $SSH_CONNECTION ]]; then
+	export EDITOR='vim'
+	if [ "$TMUX" = "" ] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then exec tmux; fi
+else
+  	export EDITOR='nvim'
+fi
 
