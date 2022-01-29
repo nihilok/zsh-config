@@ -51,8 +51,8 @@ source $ZSH/custom/aliases/my.aliases
 
 if [[ -n $SSH_CONNECTION ]]; then
 	export EDITOR='vim'
-	if [ "$TMUX" = "" ] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then exec tmux; fi
 else
   	export EDITOR='nvim'
+	if [ "$TMUX" = "" ] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then exec tmux; fi
 fi
 
