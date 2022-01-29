@@ -13,7 +13,7 @@ if [ -f "$FILE" ]; then
 fi
 
 cp ~/.zshrc ~/.zshrc.bak.$FILEDATE
-
+rm ~/.zshrc
 ln ./zsh/.zshrc ~/.zshrc
 
 ln ./zsh/themes/kali-simple.zsh-theme $ZSH/themes/kali-simple.zsh-theme
