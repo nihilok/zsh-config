@@ -40,7 +40,7 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
 
 
@@ -53,3 +53,5 @@ function backup () {
 }
 
 source $ZSH/custom/aliases
+if [ "$TMUX" = "" ] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then exec tmux; fi
+
