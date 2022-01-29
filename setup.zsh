@@ -2,7 +2,8 @@
 
 ZSH=$ZSH || ~/.oh-my-zsh
 
-FILEDATE=date +%F
+FILEDATE=$(date '+%F')
+
 FILE=~/.zshrc.bak.$FILEDATE
 
 if [ -f "$FILE" ]; then
