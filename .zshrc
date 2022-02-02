@@ -36,15 +36,21 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 # Functions and aliases
 function create_alias() {
-    echo "alias $1=\"$2\"" >> $ZSH/custom/aliases
+    echo "alias $1=\"$2\"" >> $ZSH/custom/aliases/my.aliases 
 }
 
 function backup () {
     cp $1 ~/.backup;
 }
 
+function sleept () {
+    echo "Sleeping in $1";
+    sleep $1 && systemctl suspend
+}
+
 source $ZSH/custom/aliases/aliases
 source $ZSH/custom/aliases/my.aliases
+source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
 AUTO_TMUX_ON=1
 

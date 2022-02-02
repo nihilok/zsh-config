@@ -14,15 +14,16 @@ fi
 
 cp ~/.zshrc ~/.zshrc.bak.$FILEDATE
 rm ~/.zshrc
-ln ./zsh/.zshrc ~/.zshrc
+ln ./.zshrc ~/.zshrc
 
-ln ./zsh/themes/kali-simple.zsh-theme $ZSH/themes/kali-simple.zsh-theme
+ln ./themes/kali-simple.zsh-theme $ZSH/themes/kali-simple.zsh-theme
 
 ln .aliases $ZSH/custom/aliases 
 
 touch $ZSH/custom/my.aliases
 
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions || echo "autosuggestions plugin already installed"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting || echo "syntax highlighting plugin already installed"
 
 clear
 echo "Enjoy!"
